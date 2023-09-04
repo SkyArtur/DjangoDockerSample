@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+	500
+{% endblock %}
+
+{% block content %}
+    <div class="container-sm p-5">
+        <h1>Erro Server 500</h1>
+        <h3>Realize as migrações no banco de dados</h3>
+        <h5>Copie e cole, ou digite os comandos a baixo:</h5>
+        <p><code>docker exec app python manage.py makemigrations;</code></p>
+        <p><code>docker exec app python manage.py migrate;</code></p>
+        <p><code>docker exec -it app python manage.py createsuperuser;</code></p>
+    </div>
+
+{% endblock %}

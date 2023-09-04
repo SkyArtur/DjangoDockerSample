@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+
+  server:
+    build:
+      dockerfile: ./docker/nginx.dockerfile
+      context: .
+    image: nginx_app_sample:v1
+    container_name: server
+    ports:
+      - "8080:80"
+    networks:
+      - net
+    depends_on:
+      - app
+
+  db_app:
+    build:
+      dockerfile: ./docker/postgres.dockerfile
+      context: .
+    image: django_db_sample:v1
+    container_name: db_app
+    hostname: db_app
+    ports:
+      - "5432"
+    networks:
+      - net
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+  app:
+    build:
+      dockerfile: docker/app.dockerfile
+      context: .
+    image: django_app_sample:v1
+    container_name: app
+    ports:
+      - "8000"
+    networks:
+      - net
+    depends_on:
+      - db_app
+
+networks:
+  net:
+    driver: 'bridge'
+    name: 'net'
+
+volumes:
+  pgdata:
+    name: 'pgdata'

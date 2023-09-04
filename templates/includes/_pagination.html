@@ -1,0 +1,16 @@
+<nav class="align-self-center rounded-2 shadow-sm" aria-label="Page navigation example">
+    <ul class="pagination rounded-2 p-0 m-0">
+        {% if persons.has_previous %}
+             <li class="page-item">
+                 <a class="page-link link-secondary" href="?page={{ persons.previous_page_number }}"> << </a>
+             </li>
+        {% endif %}
+
+        <li class="page-item"><a class="page-link" href="#">{{ persons.number }}</a></li>
+        {% if persons.has_next %}
+            <li class="page-item">
+                <a class="page-link link-secondary" href="?page={{ persons.next_page_number }}"> >> </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

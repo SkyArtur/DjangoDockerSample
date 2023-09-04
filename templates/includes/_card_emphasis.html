@@ -1,0 +1,47 @@
+{% load static %}
+
+<div class="container bg-light justify-content-center d-flex col-lg-6 p-2">
+    <!-- Modal -->
+    {% include 'includes/_modals_update.html' %}
+    <div class="card mw-200 mh-200 mb-3 border-0 shadow-lg align-self-center">
+        {% if emphasis.photo %}
+            <img src="{% static emphasis.photo.url %}"
+                 class="card-img-top img-fluid" alt="Foto de {{ emphasis.first_name }}">
+        {% else %}
+            <img src="{% static 'imgs/empty.jpg' %}" class="card-img-top img-fluid" alt="...">
+        {% endif %}
+            <div class="card-img-overlay">
+                <sup>
+                    <a class="btn fs-7 p-1" href="#" data-bs-toggle="modal" data-bs-target="#modalUpPhoto">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                </sup>
+            </div>
+        <div class="card-body">
+            <div class="d-flex ">
+                <h5 class="card-title">{{ emphasis.first_name }} {{ emphasis.last_name }}</h5>
+                <sup>
+                    <a class="btn fs-7 p-1" href="#" data-bs-toggle="modal" data-bs-target="#modalUpName">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                </sup>
+            </div>
+            <div class="d-flex">
+                <p class="card-text d-flex flex-column">
+                    <span class="fs-8 text-secondary">Data Nascimento: </span>
+                    {{ emphasis.birth|date:'d / m / Y' }}
+                </p>
+                <sup>
+                    <a class="btn fs-7 p-1" href="#" data-bs-toggle="modal" data-bs-target="#modalUpBirth">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                </sup>
+            </div>
+            <p class="card-text">
+                <small class="text-body-secondary fs-8 fst-italic">
+                    Atualizado em {{ emphasis.updated | timesince }}
+                </small>
+            </p>
+        </div>
+    </div>
+</div>

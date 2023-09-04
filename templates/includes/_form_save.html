@@ -1,0 +1,26 @@
+{% load widget_tweaks %}
+
+<div class="container d-flex flex-column justify-content-center bg-light col-lg-6 p-3">
+    <div class="lh-lg text-center m-3">
+        <h2 class="fs-4">Registrar Pessoa</h2>
+    </div>
+    <form method="post" action="{% url 'appSample:save' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-group shadow input-group-sm mb-3">
+            <span class="input-group-text bg-dark text-bg-dark" id="Nome">Nome</span>
+            {{ form.first_name|add_class:"form-control"|attr:"aria-label:Nome"|attr:"aria-describedby:Nome" }}
+            {{ form.last_name|add_class:"form-control"|attr:"aria-label:Nome"|attr:"aria-describedby:Nome" }}
+        </div>
+        <div class="input-group shadow input-group-sm mb-3">
+            <span class="input-group-text bg-dark text-bg-dark" id="Birth">Nascimento</span>
+            {{ form.birth|add_class:"form-control"|attr:"aria-label:Birth"|attr:"aria-describedby:Birth"|attr:"type:date" }}
+        </div>
+        <div class="input-group shadow input-group-sm mb-3">
+            <span class="input-group-text bg-dark text-bg-dark" id="Photo">Foto</span>
+            {{ form.photo|add_class:"form-control"|attr:"aria-label:Photo"|attr:"aria-describedby:Photo"|attr:"type:file" }}
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <input type="submit" class="form-control bg-dark text-bg-dark" value="Salvar">
+        </div>
+    </form>
+</div>

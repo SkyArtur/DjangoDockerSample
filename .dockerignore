@@ -1,0 +1,15 @@
+.idea
+
+.git
+
+venv
+
+__pycache__
+
+db.sqlite
+
+images
+
+README.md
+
+LICENSE.md

@@ -1,0 +1,79 @@
+<div class="modal fade" id="modalUpName" tabindex="-1" aria-labelledby="modalUpNameLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalUpNameLabel">Atualizar Nome</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% if emphasis %}
+                <form method="post" action="{% url 'appSample:up_name' emphasis.id %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="input-group shadow input-group-sm mb-3">
+                        <span class="input-group-text bg-dark text-bg-dark" id="Nome">Nome</span>
+                        <input class="form-control" id="first_name" name="first_name" type="text"
+                               aria-describedby="Nome" aria-label="Nome" value="{{ emphasis.first_name }}">
+                        <input class="form-control" id="last_name" name="last_name" type="text"
+                               aria-describedby="Nome" aria-label="Nome" value="{{ emphasis.last_name }}">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="submit" class="form-control bg-dark text-bg-dark" value="Salvar">
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{# ------------------------------------------------------------------------------------------------------------------ #}
+<div class="modal fade" id="modalUpBirth" tabindex="-1" aria-labelledby="modalUpBirthLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalUpBirthLabel">Atualizar Nascimento</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% if emphasis %}
+                <form method="post" action="{% url 'appSample:up_birth' emphasis.id %}">
+                    {% csrf_token %}
+                    <div class="input-group shadow input-group-sm mb-3">
+                        <span class="input-group-text bg-dark text-bg-dark" id="Birth">Nascimento</span>
+                        <input class="form-control" id="birth" name="birth" type="date"
+                               aria-describedby="Birth" aria-label="Birth">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="submit" class="form-control bg-dark text-bg-dark" value="Salvar">
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalUpPhoto" tabindex="-1" aria-labelledby="modalUpPhotoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalUpPhotoLabel">Atualizar Photo</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% if emphasis %}
+                <form method="post" action="{% url 'appSample:up_photo' emphasis.id %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="input-group shadow input-group-sm mb-3">
+                        <span class="input-group-text bg-dark text-bg-dark" id="Photo">Foto</span>
+                        <input class="form-control" id="photo" name="photo" type="file"
+                               aria-describedby="Photo" aria-label="Photo">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="submit" class="form-control bg-dark text-bg-dark" value="Salvar">
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
